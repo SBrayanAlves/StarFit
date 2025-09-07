@@ -1,0 +1,46 @@
+{% load static %} <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}">
+    
+    <title>StarFit</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <header>
+            <h1>Bem-vindo ao StarFit</h1>
+            <nav>
+                {% if user.is_authenticated %}
+                    <span>Olá, {{ user.username }}!</span>
+                    <a href="{% url 'logout' %}">Sair</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Entrar</a>
+                    <a href="{% url 'signup' %}">Cadastre-se</a>
+                {% endif %}
+            </nav>
+        </header>
+
+        <main>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            <p>&copy; 2025 StarFit. Todos os direitos reservados.</p>
+        </footer>
+        
+    </div> </body>
+</html>
