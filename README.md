@@ -9,9 +9,9 @@ Starfit is a simple web application with focus on Workout. Developed with Python
 - Psycopg2
 
 ## Functions
-- [ ] Signup
-- [ ] Login
-- [ ] Logout
+- [x] Signup
+- [x] Login
+- [x] Logout
 - [ ] Home page
 
 ## How to use
